@@ -1,0 +1,39 @@
+1-Quelle est la différence entre la Sérialisation et la Désérialisation ?
+
+La sérialisation est le processus de conversion des données internes en un format de données standardisé, alors que la désérialisation est le processus inverse.
+
+------------------
+2-Quelle est la différence entre ListCreateAPIView et RetrieveUpdateDestroyAPIView ?
+
+ListCreateAPIView permet de faire des méthode GET et POST, alors que RetrieveUpdateDestroyAPIView permet d'obtenir, mettre à jour et supprimer des objets spécifiques.
+
+-----------------
+3-Comment configurer l'authentification de base dans DRF ?
+
+Voir le fichier settings.py
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+}
+
+-----------------
+4-Comment restreindre l'accès aux utilisateurs authentifiés uniquement ? 
+
+Voir le fichier settings.py
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+
+Sur les vues: permission_classes = [IsAuthenticated]
+
+
+-----------------
+5-Comment tester une API DRF avec un user authentifié ?
+
+Obtenez un token avec une requête POST à api/token/ en utilisant le nom d'utilisateur et le mot de passe.
+Puis inclure le token dans l'en-tête Authorization pour accéder aux endpoints protégés.
